@@ -1,0 +1,101 @@
+/* Winter Adventure Styles */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(to bottom, #1e3d59, #fff);
+  overflow: hidden;
+  font-family: 'Montserrat', sans-serif;
+  color: #333;
+  position: relative;
+}
+
+/* Forest silhouette at bottom */
+body::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 150px;
+  background: url('https://i.imgur.com/4NJlWbz.png') no-repeat center bottom;
+  background-size: cover;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.container {
+  max-width: 640px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 2.8rem;
+  color: #1e3d59;
+  margin-bottom: 24px;
+  text-shadow: 2px 2px 6px rgba(0,0,30,0.5);
+}
+
+#story {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 24px;
+  opacity: 0;
+  animation: fadeIn 0.7s forwards;
+}
+
+#choices button {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin: 12px 0;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  background: linear-gradient(135deg, #7fb3d5, #2e86c1);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 12px rgba(0,0,50,0.4);
+}
+
+#choices button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,80,0.6);
+}
+
+/* Fade-in animation for story text and buttons */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Snowflake animation */
+@keyframes fall {
+  0% { transform: translateY(-100px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(800px) rotate(360deg); opacity: 0; }
+}
+
+.snowflake {
+  position: absolute;
+  top: -20px;
+  color: rgba(255,255,255,0.8);
+  font-size: 1.2rem;
+  user-select: none;
+  pointer-events: none;
+  animation-name: fall;
+  animation-duration: 8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
